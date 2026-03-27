@@ -43,4 +43,6 @@ elif size == "L":
         pizza_price += 3
 if extra_cheese == "Y":
     pizza_price += 1
+else:
+    print("You have enter wrong input!")
 print(f"Your final bill: ${pizza_price}")
