@@ -27,3 +27,20 @@ if extra_cheese == "Y":
     pizza_price += 1
 
 print(f"Your final bill is: ${pizza_price}.")
+
+
+# Another method to execute the code and this is better logic to visualize
+
+if size == "S":
+    pizza_price = 15
+elif size == "M":
+    pizza_price = 20
+    if pepperoni == "Y":
+        pizza_price += 2
+elif size == "L":
+    pizza_price = 25
+    if pepperoni == "Y":
+        pizza_price += 3
+if extra_cheese == "Y":
+    pizza_price += 1
+print(f"Your final bill: ${pizza_price}")
