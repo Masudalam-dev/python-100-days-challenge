@@ -20,3 +20,20 @@ for i in range(password_numbers):
 print("Your password is :",password)
 
 
+# Hard Password
+password_list = []
+random.shuffle(password_list)
+
+for i in range(password_letters):
+    password_list.append(random.choice(letters))
+
+for i in range(password_symbols):
+    password_list.append(random.choice(symbols))
+
+for i in range(password_numbers):
+    password_list.append(random.choice(numbers))
+# hard_password is now in a list so we need to convert it into string. we gonna use for loops for that
+hard_password = ""
+for char in password_list:
+    hard_password += random.choice(password_list)
+print("Your hard Password:",hard_password)
