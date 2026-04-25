@@ -1,4 +1,6 @@
 # Store the name of auction participant and bid amount in list inside dictionary
+import art
+print(art.logo)
 
 auction = {}
 
