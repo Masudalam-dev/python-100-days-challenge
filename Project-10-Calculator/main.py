@@ -76,3 +76,44 @@ while True:
     store_last_result = result
 
     break
+
+
+
+
+
+
+# Second Method
+print("Welcome to Calculator App.")
+
+
+# I have created the function because function work as a block of code which can be used again and again so once i have assign to code. I can use it multiple times
+def add(n1, n2):
+    return n1 + n2
+
+
+def subtract(n1, n2):
+    return n1 - n2
+
+
+def multiply(n1, n2):
+    return n1 * n2
+
+
+def divide(n1, n2):
+    return n1 / n2
+
+
+num1 = float(input("Enter your first number: "))
+print("Choose the operation: + , - , * , / ")
+user_operation = input("Enter your calculating operation: ")
+# I will use dictionary to store key and values
+# keys will be operation and values would be function name
+num2 = float(input("Enter your second number: "))
+operation = {
+    "+": add,
+    "-": subtract,
+    "*": multiply,
+    "/": divide,
+}
+
+print(operation["+"](2, 4))
