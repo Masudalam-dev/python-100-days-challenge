@@ -1,3 +1,5 @@
+print("Welcome to Calculator App.")
+
 def add(n1, n2):
     return n1 + n2
 
@@ -10,28 +12,67 @@ def multiply(n1, n2):
 def divide(n1, n2):
     return n1 / n2
 
-user_num1 = int(input("what's your first number? "))
-print(""""Select the Operation: 
-+
--
-* 
-/
-""")
+store_last_result = 0
 
-user_operation =input("Which operation would you like to do? ")
-user_num2 = int(input("What's the other num? "))
+while True:
 
-if user_operation == "+":
-    addition = add(user_num1,user_num2)
-    print(addition)
-elif user_operation == "-":
-    subtract = subtract(user_num1, user_num2)
-    print(subtract)
-elif user_operation == "*":
-    multiply = multiply(user_num1, user_num2)
-    print(multiply)
-elif user_operation == "/":
-    divide = divide(user_num1,user_num2)
-    print(divide)
-else:
-    print("Invalid input!")
+    # First Number
+    while True:
+        # try - It protects from crash, if user enter wrong input
+
+        try:
+            if store_last_result != 0:
+                print("Last Calculated value: ", store_last_result)
+                user_previous = input("Type 'y' if you wanna use previous value and type 'n' to start with fresh value").lower()
+                if user_previous == "y":
+                    user_num1 = store_last_result
+                    break
+
+            # I have used float here because it handles float and int well. whereas int gets crash for floating values
+            user_num1 = float(input("what's your first number? "))
+            break
+        except:
+            print("Invalid Input 😔.")
+
+
+    print(""""Select the Operation: 
+    +
+    -
+    * 
+    /
+    """)
+
+    while True:
+        user_operation = input("Which operation would you like to do? ")
+        if user_operation in ["+","-","*","/"]:
+            break
+        else:
+            print("Please enter Operation(+, -, *, /) value!")
+
+    # Number 2
+    while True:
+        try:
+            user_num2 = float(input("What's the other num? "))
+            break
+        except:
+            print("Enter a valid Num 😢.")
+
+    if user_operation == "+":
+        result = add(user_num1,user_num2)
+
+    elif user_operation == "-":
+        result = subtract(user_num1, user_num2)
+
+    elif user_operation == "*":
+        result = multiply(user_num1, user_num2)
+
+    elif user_operation == "/":
+        if user_num2 == 0:
+            print("Can't divide by Zero.")
+            continue
+        result = divide(user_num1,user_num2)
+
+    print(f"Result: {round(result,2)}")
+    store_last_result = result
+
+    break
